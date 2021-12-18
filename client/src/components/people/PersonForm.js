@@ -40,4 +40,6 @@ function mapDispatchToProps(dispatch){
   }
 }
 
-export default connect(null, mapDispatchToProps)(PersonForm)
+export default connect(null, mapDispatchToProps)(PersonForm) // null because we're not using mapStateToProps
+
+// first argument of connect gives me access to state and second give me access to dispatch and both of them give an object that will be merged with my props

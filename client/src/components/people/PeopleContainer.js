@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux' //function that expects another function that expects our component as an argument
 import { setPeople } from './../../redux/peopleActions'
 import PeopleCard from './PeopleCard'
 import PersonForm from './PersonForm'
@@ -28,16 +28,17 @@ class PeopleContainer extends React.Component {
   }
 }
 
-function mapStateToProps(stateFromStore){
+function mapStateToProps(stateFromStore){ // argument doesnt know what container we are in, its just pulling all state from store
   return {
-    people: stateFromStore.people
+    people: stateFromStore.people // so here we choose to map only people state to props 
   }
 }
 
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch){ // callback function that gets to this dispatch function -- dispatch gets mapped to people
   return {
     dispatchSetPeople: () => dispatch(setPeople())
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PeopleContainer)
+//

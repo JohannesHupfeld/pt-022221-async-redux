@@ -1,5 +1,5 @@
 function reducer(state = {
-  people: [], 
+  people: [], //default state for people
   starships: [], 
   planets: [], 
   loading: false
@@ -8,8 +8,8 @@ function reducer(state = {
     case "SET_PEOPLE":
       
       return {
-        ...state,
-        people: action.payload
+        ...state, // spread state to copy everything that is in the state -- so we dont loose starships, planets, or loading 
+        people: action.payload // payload because thats the key called in detPeople function in peopleAction.js
       };
 
     case "ADD_PERSON":

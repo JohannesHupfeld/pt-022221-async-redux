@@ -1,5 +1,8 @@
+// export const setPeople = (people) => ({type: "SET_PEOPLE", payload: people}) // without thunk
+
+//people index
 export const setPeople = () => {
-  return (dispatch) => {
+  return (dispatch) => { //thunk is passing in dispatch as an argument
     fetch("http://localhost:3000/people")
     .then(r => r.json())
     .then(people => dispatch({type: "SET_PEOPLE", payload: people}))
